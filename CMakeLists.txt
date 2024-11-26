@@ -15,4 +15,5 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 add_executable(PlayerProject
     src/main.cpp
     src/Player.cpp
+    src/GameBoard.cpp
 )

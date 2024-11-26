@@ -129,6 +129,30 @@ PlayerProject/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayerProject.dir/build.make CMakeFiles/PlayerProject.dir/build
 .PHONY : PlayerProject/fast
 
+src/GameBoard.o: src/GameBoard.cpp.o
+.PHONY : src/GameBoard.o
+
+# target to build an object file
+src/GameBoard.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayerProject.dir/build.make CMakeFiles/PlayerProject.dir/src/GameBoard.cpp.o
+.PHONY : src/GameBoard.cpp.o
+
+src/GameBoard.i: src/GameBoard.cpp.i
+.PHONY : src/GameBoard.i
+
+# target to preprocess a source file
+src/GameBoard.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayerProject.dir/build.make CMakeFiles/PlayerProject.dir/src/GameBoard.cpp.i
+.PHONY : src/GameBoard.cpp.i
+
+src/GameBoard.s: src/GameBoard.cpp.s
+.PHONY : src/GameBoard.s
+
+# target to generate assembly for a file
+src/GameBoard.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayerProject.dir/build.make CMakeFiles/PlayerProject.dir/src/GameBoard.cpp.s
+.PHONY : src/GameBoard.cpp.s
+
 src/Player.o: src/Player.cpp.o
 .PHONY : src/Player.o
 
@@ -186,6 +210,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... PlayerProject"
+	@echo "... src/GameBoard.o"
+	@echo "... src/GameBoard.i"
+	@echo "... src/GameBoard.s"
 	@echo "... src/Player.o"
 	@echo "... src/Player.i"
 	@echo "... src/Player.s"
