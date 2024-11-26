@@ -16,5 +16,11 @@
   "command": "/usr/bin/clang++  -I/Users/marieblanchard/Desktop/tic_tac_toe/include -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -o CMakeFiles/PlayerProject.dir/src/GameBoard.cpp.o -c /Users/marieblanchard/Desktop/tic_tac_toe/src/GameBoard.cpp",
   "file": "/Users/marieblanchard/Desktop/tic_tac_toe/src/GameBoard.cpp",
   "output": "CMakeFiles/PlayerProject.dir/src/GameBoard.cpp.o"
+},
+{
+  "directory": "/Users/marieblanchard/Desktop/tic_tac_toe/build",
+  "command": "/usr/bin/clang++  -I/Users/marieblanchard/Desktop/tic_tac_toe/include -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.5 -o CMakeFiles/PlayerProject.dir/src/GamePlay.cpp.o -c /Users/marieblanchard/Desktop/tic_tac_toe/src/GamePlay.cpp",
+  "file": "/Users/marieblanchard/Desktop/tic_tac_toe/src/GamePlay.cpp",
+  "output": "CMakeFiles/PlayerProject.dir/src/GamePlay.cpp.o"
 }
 ]
