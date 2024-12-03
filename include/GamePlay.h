@@ -5,6 +5,7 @@
 #include "Player.h"
 
 void play(GameBoardArray& board, Player player);
+void play_IA(GameBoardArray& board, Player player);
 bool check_victory(const GameBoardArray& board);
 
 #endif

@@ -9,6 +9,8 @@ int main() {
     Player player1("",' ');
     Player player2("",' ');
 
+    Player playerIA("",' ');
+
     bool gameMode = menu();
 
     if(gameMode){
@@ -23,10 +25,10 @@ int main() {
     else {
 
         
-    create_players(player1, player2);
+    create_players(player1, playerIA);
 
     std::cout << "Joueur 1 : " << player1.name << " avec le symbole " << player1.symbol << std::endl;
-    std::cout << "Joueur 2 : " << player2.name << " avec le symbole " << player2.symbol << std::endl; 
+    std::cout << "Joueur 2 : " << playerIA.name << " avec le symbole " << playerIA.symbol << std::endl; 
     }
 
     // Game Boart
@@ -39,7 +41,7 @@ int main() {
     Player current_player("", ' ');
     bool win {false};
 
-    while(win == false){
+    while(win == false && counter<9){
 
         if(counter % 2 == 0){
 
@@ -47,20 +49,31 @@ int main() {
 
         } else {
 
-            current_player = player2;
+            current_player = (gameMode) ? player2 : playerIA;
+        }
+        
+        if(current_player.name == "IA"){
+            play_IA(board, current_player);
+        } else {
+            play(board, current_player);
         }
 
-        play(board, current_player);
+        system("clear");
+        draw_game_board(board);
 
         if (check_victory(board)) {
             win = true;
-            std::cout << "Félicitations, " << current_player.name << " a gagné !" << std::endl;
+            std::cout << "Félicitations, " << current_player.name << " a gagné ! 🎊" << std::endl;
         }
 
-
+        
         counter++;
         
     }
 
+    if(win == false){
+        std::cout << "Match Nul 😜" << std::endl;
+    }
+    
     return 0;
 }

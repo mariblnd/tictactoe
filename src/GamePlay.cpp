@@ -1,6 +1,7 @@
 #include "GamePlay.h"
 
 #include <iostream>
+#include <cstdlib>
 
 void play(GameBoardArray& board, Player player) {
 
@@ -19,6 +20,20 @@ void play(GameBoardArray& board, Player player) {
         }
 
     } while (chosen_case < 1 || chosen_case > 9 || board[chosen_case-1] == 'X' || board[chosen_case-1] > 'O'  );
+
+    board [chosen_case - 1] = player.symbol;
+
+    draw_game_board(board);
+
+}
+
+void play_IA(GameBoardArray& board, Player player) {
+
+    int chosen_case {0};
+
+    do {
+    chosen_case = std::rand() % 9 + 1;
+    } while (board[chosen_case-1] == 'X' || board[chosen_case-1] > 'O'  );
 
     board [chosen_case - 1] = player.symbol;
 
