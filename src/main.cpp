@@ -1,17 +1,33 @@
 #include "../include/Player.h"
 #include "../include/GameBoard.h"
 #include "../include/GamePlay.h"
+#include "../include/Menu.h"
 #include <iostream>
 
 int main() {
-    // Création des joueurs
+
     Player player1("",' ');
     Player player2("",' ');
 
+    bool gameMode = menu();
+
+    if(gameMode){
+    
+        create_players_IA(player1, player2);
+       
+
+        std::cout << "Joueur 1 : " << player1.name << " avec le symbole " << player1.symbol << std::endl;
+        std::cout << player2.name << " avec le symbole " << player2.symbol << std::endl;
+}
+
+    else {
+
+        
     create_players(player1, player2);
 
     std::cout << "Joueur 1 : " << player1.name << " avec le symbole " << player1.symbol << std::endl;
-    std::cout << "Joueur 2 : " << player2.name << " avec le symbole " << player2.symbol << std::endl;
+    std::cout << "Joueur 2 : " << player2.name << " avec le symbole " << player2.symbol << std::endl; 
+    }
 
     // Game Boart
     GameBoardArray board;

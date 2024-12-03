@@ -17,4 +17,5 @@ add_executable(PlayerProject
     src/Player.cpp
     src/GameBoard.cpp
     src/GamePlay.cpp
+    src/Menu.cpp
 )

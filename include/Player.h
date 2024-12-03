@@ -12,7 +12,7 @@ struct Player {
 
 };
 
-
+void create_players_IA(Player& player1, Player& player2);
 void create_players(Player& player1, Player& player2);
 
 #endif 
