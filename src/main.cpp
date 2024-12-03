@@ -31,7 +31,7 @@ int main() {
     std::cout << "Joueur 2 : " << playerIA.name << " avec le symbole " << playerIA.symbol << std::endl; 
     }
 
-    // Game Boart
+    // Game Board
     GameBoardArray board;
     initialize_game_board(board);
     draw_game_board(board);

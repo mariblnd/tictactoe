@@ -3,6 +3,10 @@
 #include <iostream>
 #include <cstdlib>
 
+bool is_empty(const GameBoardArray& board, int index) {
+    return board[index] != 'X' && board[index] != 'O';
+}
+
 void play(GameBoardArray& board, Player player) {
 
     int chosen_case {0};
@@ -19,7 +23,7 @@ void play(GameBoardArray& board, Player player) {
             std::cout << "Choix invalide ! Cette case a déjà choisis par un joueur." << std::endl;
         }
 
-    } while (chosen_case < 1 || chosen_case > 9 || board[chosen_case-1] == 'X' || board[chosen_case-1] > 'O'  );
+    } while (chosen_case < 1 || chosen_case > 9 || board[chosen_case-1] == 'X' || board[chosen_case-1] == 'O'  );
 
     board [chosen_case - 1] = player.symbol;
 
@@ -30,10 +34,47 @@ void play(GameBoardArray& board, Player player) {
 void play_IA(GameBoardArray& board, Player player) {
 
     int chosen_case {0};
+    char opponent_symbol = (player.symbol == 'X') ? 'O' : 'X';
 
-    do {
-    chosen_case = std::rand() % 9 + 1;
-    } while (board[chosen_case-1] == 'X' || board[chosen_case-1] > 'O'  );
+    // Vérification des lignes pour bloquer l'adversaire
+    for (int i = 0; i < 9; i += 3) {
+        if (board[i] == board[i + 1] && board[i] == opponent_symbol && is_empty(board, i + 2)) {
+            chosen_case = i + 3;
+            break;
+        }
+        if (board[i + 1] == board[i + 2] && board[i + 1] == opponent_symbol && is_empty(board, i)) {
+            chosen_case = i+1;
+            break;
+        }
+        if (board[i] == board[i + 2] && board[i] == opponent_symbol && is_empty(board, i + 1)) {
+            chosen_case = i + 2;
+            break;
+        }
+    }
+
+    // Vérification des colonnes pour bloquer l'adversaire
+    for (int i = 0; i < 3; ++i) {
+        if (board[i] == board[i + 3] && board[i] == opponent_symbol && is_empty(board, i + 6)) {
+            chosen_case = i + 7;
+            break;
+        }
+        if (board[i + 3] == board[i + 6] && board[i + 3] == opponent_symbol && is_empty(board, i)) {
+            chosen_case = i+1;
+            break;
+        }
+        if (board[i] == board[i + 6] && board[i] == opponent_symbol && is_empty(board, i + 3)) {
+            chosen_case = i + 4;
+            break;
+        }
+    }
+
+    if(chosen_case == 0){
+        do {
+        chosen_case = std::rand() % 9 + 1;
+        } while (!is_empty(board, chosen_case));
+    }
+
+
 
     board [chosen_case - 1] = player.symbol;
 
