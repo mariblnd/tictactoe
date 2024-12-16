@@ -36,7 +36,6 @@ void play_IA(GameBoardArray& board, Player player) {
     int chosen_case {0};
     char opponent_symbol = (player.symbol == 'X') ? 'O' : 'X';
 
-    // Vérification des lignes pour bloquer l'adversaire
     for (int i = 0; i < 9; i += 3) {
         if (board[i] == board[i + 1] && board[i] == opponent_symbol && is_empty(board, i + 2)) {
             chosen_case = i + 3;
@@ -48,22 +47,6 @@ void play_IA(GameBoardArray& board, Player player) {
         }
         if (board[i] == board[i + 2] && board[i] == opponent_symbol && is_empty(board, i + 1)) {
             chosen_case = i + 2;
-            break;
-        }
-    }
-
-    // Vérification des colonnes pour bloquer l'adversaire
-    for (int i = 0; i < 3; ++i) {
-        if (board[i] == board[i + 3] && board[i] == opponent_symbol && is_empty(board, i + 6)) {
-            chosen_case = i + 7;
-            break;
-        }
-        if (board[i + 3] == board[i + 6] && board[i + 3] == opponent_symbol && is_empty(board, i)) {
-            chosen_case = i+1;
-            break;
-        }
-        if (board[i] == board[i + 6] && board[i] == opponent_symbol && is_empty(board, i + 3)) {
-            chosen_case = i + 4;
             break;
         }
     }
