@@ -1,6 +1,4 @@
-#ifndef MENU
-#define MENU
+#pragma once
 
 bool menu();
 
-#endif 

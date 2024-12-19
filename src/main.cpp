@@ -6,11 +6,13 @@
 
 int main() {
 
+    //Création des joueurs
     Player player1("",' ');
     Player player2("",' ');
 
     Player playerIA("",' ');
 
+    //Qule mode de jeu ? Si true alors IA else 2 joueurs
     bool gameMode = menu();
 
     if(gameMode){
@@ -37,7 +39,7 @@ int main() {
     draw_game_board(board);
 
     //Game Play
-    int counter{0};
+    int counter{0}; 
     Player current_player("", ' ');
     bool win {false};
 
